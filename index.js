@@ -10,7 +10,7 @@ const colors = [
 const refs = {
     start: document.querySelector('[data-action="start"]'),
     stop: document.querySelector('[data-action="stop"]'),
-    body: document.querySelector('body'),
+    body: document.body,
 }
 
 const randomIntegerFromInterval = (min, max) => {
@@ -25,9 +25,8 @@ let id = null;
 function onColorSwitch() {
     refs.start.disabled = true;
     id = setInterval(() => {
-        const randomColor = randomIntegerFromInterval(0, colors.length - 1);
-        console.log(randomColor);
-        refs.body.style.backgroundColor = colors[randomColor];     
+        const randomIndex = randomIntegerFromInterval(0, colors.length - 1);
+        refs.body.style.backgroundColor = colors[randomIndex];     
      }, 1000); 
 }
 
